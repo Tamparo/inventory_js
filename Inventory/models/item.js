@@ -5,6 +5,7 @@ class Item {
         this.count = count;
         this.category = category;
         this.status = status;
+        this.dateCreated = new Date;
         this.dateUpdated = new Date();
     }
     //set date updated
@@ -14,10 +15,7 @@ class Item {
 
     // update the quantity
     addCount(newCount){
-        if(newQuantity <= 0){
-            throw new Error ("Invalid Number");
-        }
-        this.quantity += newCount;
+        this.count += newCount;
         this.Updated_date();
 }
     removeCount(newCount){
@@ -30,4 +28,31 @@ class Item {
         this.count -= newCount;
         this.Updated_date();
         }
+    itemDetail(){
+        return {
+            id: this.id,
+            name: this.name,
+            count: this.count,
+            category: this.category,
+            status: this.status,
+            dateCreated: this.dateCreated,
+            dateUpdated: this.dateUpdated
+        };
+    }
+    display() {
+        return `
+            Item Details:
+            ID: ${this.id}
+            Name: ${this.name}
+            Count: ${this.count}
+            Category: ${this.category}
+            Status: ${this.status}
+            Date Created: ${this.dateCreated.toLocaleString()}
+            Date Updated: ${this.dateUpdated.toLocaleString()}
+        `;
+    }
 }
+
+
+
+module.exports = Item;
