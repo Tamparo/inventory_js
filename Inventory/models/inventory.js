@@ -1,4 +1,4 @@
-const Item = require('./item');
+/*const Item = require('./item');
 
 class Inventory {
     constructor(){
@@ -55,7 +55,7 @@ class Inventory {
             console.log(`ID: ${item.id}, Name: ${item.name}, Count: ${item.count}`);
     }
        }
-    }*/
+    }
 
 
      displayItem(item) {
@@ -73,4 +73,4 @@ class Inventory {
 
 
 
-module.exports = Inventory;
+module.exports = Inventory;*/
