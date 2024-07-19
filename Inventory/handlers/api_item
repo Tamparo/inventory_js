@@ -1,0 +1,56 @@
+const Item = require('../models/item');
+const {ItemBaseError} = require('../models/error');
+let item = [];
+let countId = 0;
+
+const get = (req, res) => {
+    res.status(200).json(items);
+};
+
+const getItem =  (req, res) => {
+    const oneItem = item.find(i => i.id === req.params.id);
+    if (oneItem) {
+        res.status(200).json(oneItem);
+    }
+    else {
+        res.status(204).json(new ItemBaseError("No item with id '" + req.params.id + "' found"));
+    }
+};
+
+const addItem = (req, res) => {
+    const {name, description, count} = req.body;
+    if(!name || !description || !count){
+        return res.status(404).json(new ItemBaseError("Invalid name or description"))
+    }
+    const newItem = new ItemBase((countId++).toString(),dname, description, count)
+    item.push(newItem);
+    res.status(200).send();
+};
+
+const deleteItem = (req, res) => {
+    const index = item.findIndex(i => i.id === req.params.id);
+    if(index == -1){
+        item.splice(index, 1);
+        res.status(200).send();
+    }
+    else{
+        res.status(400).json(new ItemBaseError("Bad Request"));
+    }
+const updateItem = (req, res) => {
+    const index = item.findIndex(i => i.id === req.params.id);
+    if(index == -1){
+        const {name, description, count} = req.body;
+        if(!name || !description || !count){
+            res.status(400).json(new ItemBaseError("Invalid Input"));
+        }
+    }
+    item[index] = {...item[index], name, description, count, dateUpdated: new Date()};
+        res.status(200).send();
+    }
+    else{
+
+    }
+
+
+
+};
