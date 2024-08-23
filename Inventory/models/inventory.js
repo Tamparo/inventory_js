@@ -1,4 +1,4 @@
-/*const Item = require('./item');
+const Item = require('./item');
 
 class Inventory {
     constructor(){
@@ -45,7 +45,7 @@ class Inventory {
     }
     // display item
 
-    /*displayItem(){
+    displayItem(){
        console.log("Inventory");
        if(this.items.size == 0){
         console.log("Inventory is empty");
@@ -73,4 +73,4 @@ class Inventory {
 
 
 
-module.exports = Inventory;*/
+module.exports = Inventory;
